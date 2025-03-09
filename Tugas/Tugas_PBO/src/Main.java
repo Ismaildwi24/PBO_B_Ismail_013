@@ -1,3 +1,4 @@
+/*
 import java.util.Scanner;
 
 public class Main {
@@ -73,6 +74,49 @@ public class Main {
 
                             } while (!username2.equals(USERNAME2) || !password2.equals(PASSWORD2));
                         }
+                        break;
+                }
+            } else {
+                System.out.println("Pilihan tidak valid.");
+                System.out.println("\nSilahkan masukkan kembali pilihan Anda!\n");
+                continue;
+            }
+        } while (!pilihanLogin.equals("1") && !pilihanLogin.equals("2"));
+
+
+    }
+}
+*/
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        String pilihanLogin;
+
+        Admin admin = new Admin();
+        Mahasiswa mahasiswa = new Mahasiswa();
+
+        do {
+
+            System.out.println("Pilih login:");
+            System.out.println("1. Admin");
+            System.out.println("2. Mahasiswa");
+            System.out.print("Masukkan pilihan: ");
+            pilihanLogin = scanner.nextLine();
+
+            if (pilihanLogin.equals("1") || pilihanLogin.equals("2")) {
+                switch (pilihanLogin) {
+                    case "1":
+                        admin.login();
+                        break;
+
+                    case "2":
+                        mahasiswa.login();
+                        System.out.println();
+                        mahasiswa.displayInfo();
                         break;
                 }
             } else {
