@@ -8,13 +8,6 @@ public class Admin {
     final String USERNAME1 = "Admin013";
     final String PASSWORD1 = "Password013";
 
-    void log(){
-        System.out.print("Masukkan username: ");
-        username = scanner.nextLine();
-        System.out.print("Masukkan password: ");
-        password = scanner.nextLine();
-    }
-
     void login(){
         if (username.equals(USERNAME1) && password.equals(PASSWORD1))
             System.out.println("Login Admin berhasil!");
