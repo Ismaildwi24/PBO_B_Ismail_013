@@ -10,6 +10,7 @@ public class RekeningBank {
         System.out.println("Nomor Rekening: " + nomorRekening);
         System.out.println("Nama Pemilik: " + namaPemilik);
         System.out.println("Saldo: Rp" + saldo);
+
     }
 
     void setorUang(double jumlah){
