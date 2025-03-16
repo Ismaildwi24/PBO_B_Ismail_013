@@ -1,17 +1,17 @@
 import java.util.Scanner;
 
-public class Main {
+public class LoginSystem {
 
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         String pilihanLogin;
 
-        Admin admin = new Admin();
-        Mahasiswa mahasiswa = new Mahasiswa();
+        User user1 = new Admin("Admin013", "Password013");
+        User user2 = new Mahasiswa("Ismail Dwi Muh. Anugerah", "202410370110013");
 
         do {
 
-            System.out.println("Pilih login:");
+            System.out.println("Pilihan login:");
             System.out.println("1. Admin");
             System.out.println("2. Mahasiswa");
             System.out.print("Masukkan pilihan: ");
@@ -20,13 +20,13 @@ public class Main {
             if (pilihanLogin.equals("1") || pilihanLogin.equals("2")) {
                 switch (pilihanLogin) {
                     case "1":
-                        admin.login();
+                        user1.login(user1);
                         break;
 
                     case "2":
-                        mahasiswa.login();
+                        user2.login(user2);
                         System.out.println();
-                        mahasiswa.displayInfo();
+                        user2.displayInfo(user2);
                         break;
                 }
             } else {
