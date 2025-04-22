@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class User {
+public class User {
     private String nama;
     private String nim;
 

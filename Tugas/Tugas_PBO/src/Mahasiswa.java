@@ -5,19 +5,19 @@ public class Mahasiswa extends User{
     String nama;
     String nim;
 
-    final String USERNAME2 = "Ismail Dwi Muh. Anugerah";
-    final String PASSWORD2 = "202410370110013";
-
     public Mahasiswa(String nama, String nim) {
         super(nama, nim);
     }
+
+    final String USERNAME2 = "Ismail Dwi Muh. Anugerah";
+    final String PASSWORD2 = "202410370110013";
 
     @Override
     void login(User user){
         System.out.print("Masukkan Username: ");
         nama = input.nextLine();
         user.setNama(nama);
-        System.out.print("Masukkan Password: ");
+        System.out.print("Masukkan NIM: ");
         nim = input.nextLine();
         user.setNim(nim);
 
@@ -25,12 +25,12 @@ public class Mahasiswa extends User{
             System.out.println("Login Mahasiswa berhasil!");
         else {
             do {
-                System.out.println("Login gagal! Username atau password salah.");
-                System.out.println("\nSilahkan isi kembali username dan password Anda!");
+                System.out.println("Login gagal! Username atau NIM salah.");
+                System.out.println("\nSilahkan isi kembali username dan NIM Anda!");
                 System.out.print("Masukkan Username: ");
                 nama = input.nextLine();
                 user.setNama(nama);
-                System.out.print("Masukkan Password: ");
+                System.out.print("Masukkan NIM: ");
                 nim = input.nextLine();
                 user.setNim(nim);
 

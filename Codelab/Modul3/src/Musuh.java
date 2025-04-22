@@ -15,7 +15,7 @@ public class Musuh extends KarakterGame{
         String inputPerulangan;
 
         System.out.println("Pilih sklill " + getName() + " yang akan kamu gunakan: ");
-        System.out.println("1. Snake Bite, damage: 5");
+        System.out.println("1. Snake Bite, damage: 15");
         System.out.println("2. Dead Poison, damage: 25");
         System.out.println("3. Tail Attack, damage: 10");
         System.out.print("Masukkan skill: ");
@@ -23,7 +23,7 @@ public class Musuh extends KarakterGame{
 
         if (inputSkill.equals("1")) {
             skill = "Snake Bite";
-            kerusakan = 5;
+            kerusakan = 15;
 
             System.out.println(getName() + " menyerang " + target.getName() + " menggunakan " + skill +"!");
             target.setKesehatan(target.getKesehatan() - kerusakan);

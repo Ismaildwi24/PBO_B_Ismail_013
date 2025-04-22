@@ -2,24 +2,24 @@ import java.util.Scanner;
 
 public class Admin extends User{
     Scanner input = new Scanner(System.in);
-    String username;
-    String password;
+    String nama;
+    String nim;
+
+    public Admin(String nama, String nim) {
+        super(nama, nim);
+    }
 
     final String USERNAME1 = "Admin013";
     final String PASSWORD1 = "Password013";
 
-    public Admin(String username, String password) {
-        super(username, password);
-    }
-
     @Override
     void login(User user){
         System.out.print("Masukkan Username: ");
-        username = input.nextLine();
-        user.setNama(username);
+        nama = input.nextLine();
+        user.setNama(nama);
         System.out.print("Masukkan Password: ");
-        password = input.nextLine();
-        user.setNim(password);
+        nim = input.nextLine();
+        user.setNim(nim);
 
         if (user.getNama().equals(USERNAME1) && user.getNim().equals(PASSWORD1))
             System.out.println("Login Admin berhasil!");
@@ -28,18 +28,18 @@ public class Admin extends User{
                 System.out.println("Login gagal! Username atau password salah.");
                 System.out.println("\nSilahkan isi kembali username dan password Anda!");
                 System.out.print("Masukkan Username: ");
-                username = input.nextLine();
-                user.setNama(username);
+                nama = input.nextLine();
+                user.setNama(nama);
                 System.out.print("Masukkan Password: ");
-                password = input.nextLine();
-                user.setNim(password);
+                nim = input.nextLine();
+                user.setNim(nim);
 
                 if (user.getNama().equals(USERNAME1) && user.getNim().equals(PASSWORD1))
                 {
                     System.out.println("Login Admin berhasil!");
                 }
 
-            } while (!username.equals(USERNAME1) || !password.equals(PASSWORD1));
+            } while (!user.getNama().equals(USERNAME1) || !user.getNim().equals(PASSWORD1));
         }
     }
 

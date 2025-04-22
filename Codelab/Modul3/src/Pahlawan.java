@@ -16,7 +16,7 @@ public class Pahlawan extends KarakterGame{
         String inputPerulangan;
 
         System.out.println("Pilih sklill " + getName() + " yang akan kamu gunakan: ");
-        System.out.println("1. Orbital Strike, damage: 10");
+        System.out.println("1. Orbital Strike, damage: 20");
         System.out.println("2. Verikal Kick, damage: 10");
         System.out.println("3. Rock Fall, damage: 25");
         System.out.print("Masukkan skill: ");
@@ -24,7 +24,7 @@ public class Pahlawan extends KarakterGame{
 
         if (inputSkill.equals("1")) {
             skill = "Orbital Strike";
-            kerusakan = 10;
+            kerusakan = 20;
             System.out.println(getName() + " menyerang " + target.getName() + " menggunakan " + skill + "!");
             target.setKesehatan(getKesehatan() - kerusakan);
             System.out.println(target.getName() + " sekarang memiliki kesehatan " + target.getKesehatan());
