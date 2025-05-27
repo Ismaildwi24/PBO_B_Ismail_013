@@ -1,51 +1,51 @@
 package com.praktikum.main;
 
 import com.praktikum.data.Item;
-import com.praktikum.users.Admin;
-import com.praktikum.users.Mahasiswa;
-import com.praktikum.users.User;
+import com.praktikum.users.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoginSystem {
-    static ArrayList<User> userList = new ArrayList<>();
-    static ArrayList<Item> reportedItems = new ArrayList<>();
-    public static void main(String[] args){
+    public static ArrayList<User> userList = new ArrayList<>();
+    public static ArrayList<Item> reportedItems = new ArrayList<>();
+
+    public static void main(String[] args) {
+        // Default data
+        userList.add(new Admin("Admin013", "Password013"));
+        userList.add(new Mahasiswa("Ismail Dwi Muh. Anugerah", "202410370110013"));
+
         Scanner scanner = new Scanner(System.in);
-        String pilihanLogin;
+        System.out.println("=== Sistem Login ===");
 
-        User user1 = new Admin("Admin013", "Password013");
-        User user2 = new Mahasiswa("Ismail Dwi Muh. Anugerah", "202410370110013");
+        while (true) {
+            System.out.print("Masukkan username/Nama: ");
+            String uname = scanner.nextLine();
+            System.out.print("Masukkan password/NIM: ");
+            String pw = scanner.nextLine();
 
-        do {
+            User user = authenticate(uname, pw);
 
-            System.out.println("Pilihan login:");
-            System.out.println("1. Admin");
-            System.out.println("2. Mahasiswa");
-            System.out.print("Masukkan pilihan: ");
-            pilihanLogin = scanner.nextLine();
-
-            if (pilihanLogin.equals("1") || pilihanLogin.equals("2")) {
-                switch (pilihanLogin) {
-                    case "1":
-                        user1.login(user1);
-                        System.out.println();
-                        user1.displayAppMenu();
-                        break;
-
-                    case "2":
-                        user2.login(user2);
-                        System.out.println();
-                        user2.displayInfo(user2);
-                        System.out.println();
-                        user2.displayAppMenu();
-                        break;
-                }
+            if (user != null) {
+                user.menu();
             } else {
-                System.out.println("Pilihan tidak valid.");
-                System.out.println("\nSilahkan masukkan kembali pilihan Anda!\n");
+                System.out.println("Login gagal. Coba lagi.\n");
             }
-        } while (!pilihanLogin.equals("1") && !pilihanLogin.equals("2"));
+        }
+    }
+
+    public static User authenticate(String uname, String pw) {
+        for (User user : userList) {
+            if (user instanceof Admin a) {
+                if (a.username.equals(uname) && a.password.equals(pw)) {
+                    return a;
+                }
+            } else if (user instanceof Mahasiswa m) {
+                if (m.getName().equalsIgnoreCase(uname) && m.getNim().equals(pw)) {
+                    return m;
+                }
+            }
+        }
+        return null;
     }
 }

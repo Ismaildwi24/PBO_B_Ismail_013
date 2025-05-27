@@ -16,22 +16,18 @@ public class kurangiStokBarang {
             System.out.println(i + ". " + daftarBarang.get(i).getNama() + " - Stok: " + daftarBarang.get(i).getStok());
         }
 
-        System.out.print("Masukkan Nomor Indeks Barang yang Akan Dikurangi Stoknya: ");
         int indeks = 0;
         try {
+            System.out.print("Masukkan Nomor Indeks Barang yang Akan Dikurangi Stoknya: ");
             indeks = scanner.nextInt();
+            daftarBarang.get(indeks);
         } catch (InputMismatchException e) {
             System.out.println("Input Salah. Input Seharusnya Berupa Integer");
             scanner.nextLine();
             return;
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Data Barang Kosong. Silahkan Tambah Barang Terlebih Dahulu");
+            System.out.println("Indeks Barang Tidak Valid!");
             scanner.nextLine();
-            return;
-        }
-
-        if (indeks < 0 || indeks >= daftarBarang.size()) {
-            System.out.println("Data Barang Kosong. Silahkan Tambah Barang Terlebih Dahulu");
             return;
         }
 
